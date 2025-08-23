@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# cpu_temp.sh — Show Core 0 temperature in °C for dwmblocks
+
+core0_temp=$(sensors | awk '/Core 0:/ {
+    gsub("\\+","",$3); gsub("°C","",$3)
+    print $3 "°C"
+    exit
+}')
+
+# Fallback if no reading found
+[ -z "$core0_temp" ] && core0_temp="N/A"
+
+echo " $core0_temp"
+
