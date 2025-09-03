@@ -23,15 +23,21 @@ get_network_status() {
     CONNECTION_NAME=$(echo "$ACTIVE_CONNECTION" | cut -d':' -f3)
 
     case "$CONNECTION_TYPE" in
-        "ethernet")
-            # Ethernet connection
-            IP_ADDR=$(nmcli -g IP4.ADDRESS device show | head -1 | cut -d'/' -f1)
-            if [ -n "$IP_ADDR" ]; then
-                echo "󰈀 $IP_ADDR"
-            else
-                echo "󰈀 Ethernet"
-            fi
-            ;;
+         "ethernet")
+        # Ethernet connection
+        ETH_DEV=$(nmcli -t -f DEVICE,TYPE device status | awk -F: '$2=="ethernet"{print $1; exit}')
+        IP_ADDR=$(nmcli -g IP4.ADDRESS device show "$ETH_DEV" | head -1 | cut -d'/' -f1)
+
+        if [ -n "$IP_ADDR" ]; then
+            # Masked output for sharing
+            SAFE_IP=$(echo "$IP_ADDR" | sed 's/\.[0-9]\{1,3\}$/.* /')
+            echo "󰈀 $SAFE_IP"
+        else
+            echo "󰈀 Ethernet"
+        fi
+        ;;
+   
+
         
         "wifi")
             # WiFi connection
