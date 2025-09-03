@@ -42,17 +42,4 @@ It displays your current network state (Ethernet/WiFi/VPN) directly in the dwm s
 2. Make it executable:
    ```bash
    chmod +x ~/.config/scripts/network.sh
-Add it to your dwmblocks config (e.g. in blocks.h):
 
-c
-Copy code
-static const Block blocks[] = {
-    /*Command*/               /*Update Interval*/   /*Update Signal*/
-    {"~/.config/scripts/network.sh", 5, 0},
-};
-Rebuild and restart dwmblocks:
-
-bash
-Copy code
-make clean install
-pkill dwmblocks && dwmblocks &
