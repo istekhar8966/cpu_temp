@@ -5,7 +5,7 @@ It displays your current network state (Ethernet/WiFi/VPN) directly in the dwm s
 
 ---
 
-## ✨ Features
+##  Features
 - Detects whether **NetworkManager** is running.
 - Shows:
   - **Disconnected** status if no network is active.
@@ -17,7 +17,7 @@ It displays your current network state (Ethernet/WiFi/VPN) directly in the dwm s
 
 ---
 
-## 📸 Example Output
+## Example Output
 - Ethernet with IP:  
   `󰈀 192.168.208.*`  
 - WiFi with SSID and signal:  
@@ -29,14 +29,14 @@ It displays your current network state (Ethernet/WiFi/VPN) directly in the dwm s
 
 ---
 
-## ⚙️ Requirements
+##  Requirements
 - **dwmblocks** installed and configured.
 - **NetworkManager** (`nmcli`) enabled.
 - A nerd font patched font (for icons).
 
 ---
 
-## 🚀 Installation
+## Installation
 1. Save the script (e.g., `network.sh`) in your scripts folder,  
    e.g. `~/.config/scripts/network.sh`
 2. Make it executable:
