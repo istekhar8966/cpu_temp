@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 # ─────────────────────────────────────────────────────────────
 # Network status script for dwmblocks (using NetworkManager).
 # Displays connection type (Ethernet/WiFi), signal strength,
